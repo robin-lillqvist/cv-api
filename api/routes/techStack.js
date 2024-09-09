@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
       "Node.js",
       "JavaScript",
       "TypeScript",
+      "SASS",
     ],
   };
 

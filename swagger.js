@@ -1,22 +1,22 @@
 export const swaggerJsDoc = {
   openapi: "3.0.0",
   info: {
-    title: "Personal API",
+    title: "Robin's CV API",
     version: "1.0.0",
     description:
       "This is an API that provides information about a person, their preferences, skills, and allows submitting job offers.",
   },
   servers: [
     {
-      url: "http://localhost:3000",
+      url: "/",
     },
   ],
   paths: {
     "/general-info": {
       get: {
-        summary: "Get general information",
+        summary: "Get my general information",
         description:
-          "Returns general information about the person including name, age, and location.",
+          "Returns general information about me including name, age, and location.",
         responses: {
           200: {
             description: "General information retrieved successfully",
@@ -44,9 +44,9 @@ export const swaggerJsDoc = {
     },
     "/work-policy": {
       get: {
-        summary: "Get work policy",
+        summary: "Get my preferred work policy",
         description:
-          "Returns the user's work policy preference, such as remote or hybrid work.",
+          "Returns my work policy preference, such as remote or hybrid work.",
         responses: {
           200: {
             description: "Work policy retrieved successfully",
@@ -69,9 +69,8 @@ export const swaggerJsDoc = {
     },
     "/tech-stack": {
       get: {
-        summary: "Get preferred tech stack",
-        description:
-          "Returns the user's preferred technologies for development.",
+        summary: "Get my preferred tech stack",
+        description: "Returns the my preferred technologies for development.",
         responses: {
           200: {
             description: "Tech stack retrieved successfully",
@@ -101,9 +100,8 @@ export const swaggerJsDoc = {
     },
     "/skills": {
       get: {
-        summary: "Get skills",
-        description:
-          "Returns a list of the user's skills and proficiency levels.",
+        summary: "See my skills",
+        description: "Returns a list of my skills and proficiency levels.",
         responses: {
           200: {
             description: "Skills retrieved successfully",
@@ -141,7 +139,7 @@ export const swaggerJsDoc = {
       post: {
         summary: "Submit a job offer",
         description:
-          "Submits a job offer that includes the title, description, and salary, and sends an email.",
+          "Submits a job offer that includes the title, description, and salary, and sends an email to me.",
         requestBody: {
           required: true,
           content: {

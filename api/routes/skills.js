@@ -5,8 +5,8 @@ const router = Router();
 router.get("/", (req, res) => {
   const skills = {
     Skills: [
-      { React: "7" },
-      { NextJs: "6" },
+      { React: "8" },
+      { NextJs: "8" },
       { NodeJS: "6" },
       { JavaScript: "8" },
       { TypeScript: "5" },
