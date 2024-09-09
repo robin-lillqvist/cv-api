@@ -1,19 +1,14 @@
 import express from "express";
 import swaggerUi from "swagger-ui-express";
-import { swaggerJsDoc } from "../swagger.js";
+import { swaggerJsDoc } from "./swagger.js";
 import generalInfoRoute from "./routes/generalInfo.js";
 import workPolicyRoute from "./routes/workPolicy.js";
 import techStackRoute from "./routes/techStack.js";
 import skillsRoute from "./routes/skills.js";
 import jobEnquiryRoute from "./routes/jobEnquiry.js";
 import bodyParser from "body-parser";
-import * as dotenv from "dotenv";
 import rateLimit from "express-rate-limit";
 import morgan from "morgan";
-
-// Load environment variables
-dotenv.config();
-
 const app = express();
 const port = process.env.PORT || 3000;
 
