@@ -1,8 +1,12 @@
 import express from "express";
 import nodemailer from "nodemailer";
 const router = express.Router();
-import * as dotenv from "dotenv";
-dotenv.config();
+import path, { dirname } from "path"; // Import path and dirname
+import { fileURLToPath } from "url"; // Import fileURLToPath
+import dotenv from "dotenv"; // Import dotenv
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
