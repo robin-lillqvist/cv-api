@@ -1,6 +1,6 @@
 import express from "express";
 import swaggerUi from "swagger-ui-express";
-import { swaggerJsDoc } from "../swagger.js";
+import { swaggerJsDoc } from "./swagger.js";
 import generalInfoRoute from "./routes/generalInfo.js";
 import workPolicyRoute from "./routes/workPolicy.js";
 import techStackRoute from "./routes/techStack.js";
