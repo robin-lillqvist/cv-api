@@ -8,15 +8,14 @@ export const swaggerJsDoc = {
   },
   servers: [
     {
-      url: "/",
+      url: "/api",
     },
   ],
   paths: {
     "/general-info": {
       get: {
         summary: "Get my general information",
-        description:
-          "Returns general information about me including name, age, and location.",
+        description: "Returns general information about me including name, age, and location.",
         responses: {
           200: {
             description: "General information retrieved successfully",
@@ -45,8 +44,7 @@ export const swaggerJsDoc = {
     "/work-policy": {
       get: {
         summary: "Get my preferred work policy",
-        description:
-          "Returns my work policy preference, such as remote or hybrid work.",
+        description: "Returns my work policy preference, such as remote or hybrid work.",
         responses: {
           200: {
             description: "Work policy retrieved successfully",
@@ -82,13 +80,7 @@ export const swaggerJsDoc = {
                     preferredTechStack: {
                       type: "array",
                       items: { type: "string" },
-                      example: [
-                        "React",
-                        "Next.js",
-                        "Node.js",
-                        "JavaScript",
-                        "TypeScript",
-                      ],
+                      example: ["React", "Next.js", "Node.js", "JavaScript", "TypeScript"],
                     },
                   },
                 },
@@ -119,13 +111,7 @@ export const swaggerJsDoc = {
                           proficiency: { type: "integer" },
                         },
                       },
-                      example: [
-                        { React: 7 },
-                        { NextJs: 6 },
-                        { "Node.js": 6 },
-                        { JavaScript: 8 },
-                        { TypeScript: 5 },
-                      ],
+                      example: [{ React: 7 }, { NextJs: 6 }, { "Node.js": 6 }, { JavaScript: 8 }, { TypeScript: 5 }],
                     },
                   },
                 },
@@ -138,8 +124,7 @@ export const swaggerJsDoc = {
     "/job-offer": {
       post: {
         summary: "Submit a job offer",
-        description:
-          "Submits a job offer that includes the title, description, and salary, and sends an email to me.",
+        description: "Submits a job offer that includes the title, description, and salary, and sends an email to me.",
         requestBody: {
           required: true,
           content: {
@@ -185,8 +170,7 @@ export const swaggerJsDoc = {
                   properties: {
                     error: {
                       type: "string",
-                      example:
-                        "Please provide all required fields: title, description, salary",
+                      example: "Please provide all required fields: title, description, salary",
                     },
                   },
                 },

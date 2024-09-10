@@ -11,7 +11,7 @@ import rateLimit from "express-rate-limit";
 import morgan from "morgan";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -24,16 +24,18 @@ app.use(limiter);
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
-// Register routes
-app
-  .use("/general-info", generalInfoRoute)
-  .use("/work-policy", workPolicyRoute)
-  .use("/tech-stack", techStackRoute)
-  .use("/skills", skillsRoute)
-  .use("/job-offer", jobEnquiryRoute);
-
+// Serve Swagger UI at the root
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
+
+// Register routes
+app.use("/api/general-info", generalInfoRoute);
+app.use("/api/work-policy", workPolicyRoute);
+app.use("/api/tech-stack", techStackRoute);
+app.use("/api/skills", skillsRoute);
+app.use("/api/job-offer", jobEnquiryRoute);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+export default app;
