@@ -32,6 +32,9 @@ const specs = swaggerJSDoc(options);
 
 const app = express();
 
+// Serve Swagger UI static files
+app.use(express.static(path.join(__dirname, "node_modules/swagger-ui-dist")));
+
 const port = process.env.PORT || 3001;
 
 app.use(morgan("combined"));
