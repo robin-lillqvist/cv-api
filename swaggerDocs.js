@@ -55,7 +55,7 @@ const swaggerJsDoc = {
         },
       },
     },
-    "/job-offer": {
+    "/api/job-offer": {
       post: {
         summary: "Submit a job offer",
         description: "Submits a job offer by providing title, description, and salary in the request body.",
@@ -140,7 +140,7 @@ const swaggerJsDoc = {
         },
       },
     },
-    "/work-policy": {
+    "/api/work-policy": {
       get: {
         summary: "Get work policy details",
         description: "Returns information about work preferences, policies, and other work-related details.",
@@ -193,7 +193,7 @@ const swaggerJsDoc = {
         },
       },
     },
-    "/tech-stack": {
+    "/api/tech-stack": {
       get: {
         summary: "Get preferred technology stack",
         description:
@@ -222,7 +222,7 @@ const swaggerJsDoc = {
         },
       },
     },
-    "/skills": {
+    "/api/skills": {
       get: {
         summary: "Get list of skills with proficiency levels",
         description: "Returns a list of programming skills with associated proficiency levels (on a scale of 1 to 10).",
