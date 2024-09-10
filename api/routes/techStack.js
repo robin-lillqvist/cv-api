@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /api/tech-stack:
+ * /tech-stack:
  *   get:
  *     summary: Get preferred technology stack
  *     description: Returns a list of preferred technologies used in development, including front-end and back-end technologies.

@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /:
+ * /general-info:
  *   get:
  *     summary: Get personal information about me
  *     description: Returns personal details including name, age, location, motto, and extracurricular activities.

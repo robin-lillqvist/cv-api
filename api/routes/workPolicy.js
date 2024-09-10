@@ -18,10 +18,12 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /:
+ * /work-policy:
  *   get:
  *     summary: Get work policy information
  *     description: Returns details about the work policy, including remote preference, work hours, vacation, and other work-related terms.
+ *     tags:
+ *       - Work
  *     responses:
  *       200:
  *         description: A JSON object containing work policy information.

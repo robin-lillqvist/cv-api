@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
 
 /**
  * @swagger
- * /:
+ * /skills:
  *   get:
  *     summary: Get list of skills with proficiency levels
  *     description: Returns a list of programming skills with associated proficiency levels (on a scale of 1 to 10).
  *     tags:
- *       - Personal Information
+ *       - Skills
  *     responses:
  *       200:
  *         description: A JSON object containing skills and proficiency levels
