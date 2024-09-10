@@ -24,8 +24,23 @@ app.use(limiter);
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
-// Serve Swagger UI at the root
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
+// Serve Swagger JSON
+app.get("/api-docs.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(swaggerJsDoc);
+});
+
+// Serve Swagger UI
+app.use("/", swaggerUi.serve);
+app.get(
+  "/",
+  swaggerUi.setup(swaggerJsDoc, {
+    explorer: true,
+    swaggerOptions: {
+      url: "/api-docs.json",
+    },
+  })
+);
 
 // Register routes
 app.use("/api/general-info", generalInfoRoute);
