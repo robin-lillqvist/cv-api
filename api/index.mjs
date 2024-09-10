@@ -19,28 +19,11 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-
-// Logging HTTP requests
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
-// Serve Swagger JSON
-app.get("/api-docs.json", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.send(swaggerJsDoc);
-});
-
 // Serve Swagger UI
-app.use("/", swaggerUi.serve);
-app.get(
-  "/",
-  swaggerUi.setup(swaggerJsDoc, {
-    explorer: true,
-    swaggerOptions: {
-      url: "/api-docs.json",
-    },
-  })
-);
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
 
 // Register routes
 app.use("/api/general-info", generalInfoRoute);

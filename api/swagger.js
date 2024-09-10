@@ -9,7 +9,6 @@ export const swaggerJsDoc = {
   servers: [
     {
       url: "/api",
-      description: "API base URL",
     },
   ],
   paths: {

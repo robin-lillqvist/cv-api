@@ -12,10 +12,6 @@
       "dest": "api/index.mjs"
     },
     {
-      "src": "/api-docs.json",
-      "dest": "api/index.mjs"
-    },
-    {
       "src": "/(.*)",
       "dest": "api/index.mjs"
     }
