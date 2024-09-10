@@ -1,5 +1,5 @@
-import { Router } from "express";
-const router = Router();
+const express = require("express");
+const router = express.Router();
 
 router.get("/", (req, res) => {
   const workPolicy = {
@@ -9,12 +9,11 @@ router.get("/", (req, res) => {
     noticePeriod: "3 months.",
     overtime: "Rarely, but compensated in time off.",
     collaboration: "Regular team meetings, open-door policy.",
-    communication:
-      "Slack for quick updates, Google meets for meetings, email for detailed discussions.",
+    communication: "Slack for quick updates, Google meets for meetings, email for detailed discussions.",
     workPolicy: "I prefer a hybrid work policy.",
   };
 
   res.json(workPolicy);
 });
 
-export default router;
+module.exports = router;

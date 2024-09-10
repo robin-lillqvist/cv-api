@@ -1,12 +1,12 @@
-import express from "express";
-import generalInfoRoute from "./routes/generalInfo.js";
-import workPolicyRoute from "./routes/workPolicy.js";
-import techStackRoute from "./routes/techStack.js";
-import skillsRoute from "./routes/skills.js";
-import jobEnquiryRoute from "./routes/jobEnquiry.js";
-import bodyParser from "body-parser";
-import rateLimit from "express-rate-limit";
-import morgan from "morgan";
+const express = require("express");
+const generalInfoRoute = require("./routes/generalInfo");
+const workPolicyRoute = require("./routes/workPolicy");
+const techStackRoute = require("./routes/techStack");
+const skillsRoute = require("./routes/skills");
+const jobEnquiryRoute = require("./routes/jobEnquiry");
+const bodyParser = require("body-parser");
+const rateLimit = require("express-rate-limit");
+const morgan = require("morgan");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,4 +35,4 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-export default app;
+module.exports = app;
