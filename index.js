@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const rateLimit = require("express-rate-limit");
 const morgan = require("morgan");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
@@ -22,25 +21,19 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
+        url: "http://localhost:3001",
       },
     ],
   },
-  apis: ["./api/routes/*.js"],
+  apis: ["./routes/*.js"],
 };
 
 const specs = swaggerJSDoc(options);
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
-
-app.use(limiter);
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 

@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require("path");
 const dotenv = require("dotenv");
 
-dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
