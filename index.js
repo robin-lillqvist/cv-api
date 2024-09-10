@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const path = require("path");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
-/* const swaggerDocument = require("./swaggerDocs"); // Your centralized Swagger file */
+const swaggerDocument = require("./swaggerDocs"); // Your centralized Swagger file
 
 // Routes
 const generalInfoRoute = require("./routes/generalInfo");
@@ -21,7 +22,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3001",
+        url: "http://localhost:3000",
       },
     ],
   },
@@ -33,9 +34,11 @@ const specs = swaggerJSDoc(options);
 const app = express();
 
 // Serve Swagger UI static files
-app.use(express.static(path.join(__dirname, "node_modules/swagger-ui-dist")));
+app.use("/swagger-ui", express.static(path.join(__dirname, "node_modules/swagger-ui-dist")));
+// Swagger UI setup
+app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.use(morgan("combined"));
 app.use(bodyParser.json());
@@ -48,7 +51,7 @@ app.use("/skills", skillsRoute);
 app.use("/job-offer", jobEnquiryRoute);
 
 /* app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument)); */
-app.use("/", swaggerUI.serve, swaggerUI.setup(specs));
+/* app.use("/", swaggerUI.serve, swaggerUI.setup(specs)); */
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
