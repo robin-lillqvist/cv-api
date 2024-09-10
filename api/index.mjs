@@ -22,8 +22,10 @@ app.use(limiter);
 app.use(morgan("combined"));
 app.use(bodyParser.json());
 
-// Serve Swagger UI
-app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
+// Serve Swagger UI at the root
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerJsDoc, { customCssUrl: CSS_URL }));
 
 // Register routes
 app.use("/api/general-info", generalInfoRoute);
