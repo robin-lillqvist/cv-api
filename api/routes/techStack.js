@@ -1,19 +1,12 @@
-import { Router } from "express";
-const router = Router();
+const express = require("express");
+const router = express.Router();
 
 router.get("/", (req, res) => {
   const techStack = {
-    preferredTechStack: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "JavaScript",
-      "TypeScript",
-      "SASS",
-    ],
+    preferredTechStack: ["React", "Next.js", "Node.js", "JavaScript", "TypeScript", "SASS"],
   };
 
   res.json(techStack);
 });
 
-export default router;
+module.exports = router;

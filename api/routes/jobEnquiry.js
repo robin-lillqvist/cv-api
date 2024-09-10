@@ -1,11 +1,9 @@
-import express from "express";
-import nodemailer from "nodemailer";
+const express = require("express");
+const nodemailer = require("nodemailer");
 const router = express.Router();
-import path, { dirname } from "path"; // Import path and dirname
-import { fileURLToPath } from "url"; // Import fileURLToPath
-import dotenv from "dotenv"; // Import dotenv
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const path = require("path");
+const dotenv = require("dotenv");
+
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 let transporter = nodemailer.createTransport({
@@ -37,25 +35,21 @@ router.post("/", (req, res) => {
     });
 });
 
-function sendEmail(title, description, salary) {
-  // Log the details of the mail options
+async function sendEmail(title, description, salary) {
   let mailOptions = {
     from: process.env.SENDER,
-    to: process.env.RECIPIENT, // Corrected spelling of RECIPIENT
+    to: process.env.RECIPIENT,
     subject: "New Job Offer Submission",
     text: `Job Title: ${title}\n Description: ${description}\n Salary: ${salary}`,
   };
 
-  // Send mail and return the Promise
-  return transporter
-    .sendMail(mailOptions)
-    .then((info) => {
-      console.log("Nodemailer response:", info.response);
-    })
-    .catch((error) => {
-      console.error("Nodemailer error:", error);
-      throw error; // Re-throw error to handle in the calling function
-    });
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Nodemailer response:", info.response);
+  } catch (error) {
+    console.error("Nodemailer error:", error);
+    throw error;
+  }
 }
 
-export default router;
+module.exports = router;
