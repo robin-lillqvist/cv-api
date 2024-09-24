@@ -57,8 +57,9 @@ const swaggerJsDoc = {
     },
     "/api/job-offer": {
       post: {
-        summary: "Submit a job offer",
-        description: "Submits a job offer by providing title, description, and salary in the request body.",
+        summary: "Supposed you like what you see, make me an offer I can't refuse",
+        description:
+          "Come in contact with me to discuss me working for you. Required fields: 'Title', 'Description', 'Salary'",
         tags: ["Job Offer"],
         requestBody: {
           required: true,
@@ -142,9 +143,9 @@ const swaggerJsDoc = {
     },
     "/api/work-policy": {
       get: {
-        summary: "Get work policy details",
+        summary: "Get my preferred work policy details",
         description: "Returns information about work preferences, policies, and other work-related details.",
-        tags: ["Work Policy"],
+        tags: ["Work Preferences"],
         responses: {
           200: {
             description: "A JSON object containing work policy details",
@@ -198,7 +199,7 @@ const swaggerJsDoc = {
         summary: "Get preferred technology stack",
         description:
           "Returns a list of preferred technologies used in development, including front-end and back-end technologies.",
-        tags: ["Tech Stack"],
+        tags: ["Work Preferences"],
         responses: {
           200: {
             description: "A JSON object containing a list of preferred technologies",
@@ -226,7 +227,7 @@ const swaggerJsDoc = {
       get: {
         summary: "Get list of skills with proficiency levels",
         description: "Returns a list of programming skills with associated proficiency levels (on a scale of 1 to 10).",
-        tags: ["Skills"],
+        tags: ["Personal Information"],
         responses: {
           200: {
             description: "A JSON object containing skills and proficiency levels",
